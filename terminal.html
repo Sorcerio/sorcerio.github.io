@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Brody Childs' Portfolio</title>
+
+	<link rel="stylesheet" href="css/98.css">
+	<link rel="stylesheet" href="css/primary.css">
+
+	<link rel="icon" type="image/png" href="assets/icons/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+	<link rel="shortcut icon" href="assets/icons/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+	<meta name="apple-mobile-web-app-title" content="Brody Childs' Portfolio" />
+	<link rel="manifest" href="assets/icons/site.webmanifest" />
+
+	<script src="js/utils.js"></script>
+</head>
+<body id="terminal">
+	<div class="title-bar">
+		<div class="title-bar-text">Terminal</div>
+		<div class="title-bar-controls">
+			<button aria-label="Help"></button>
+		</div>
+	</div>
+	<div class="content">
+		<div class="logo">
+			<img src="assets/TheEye.png" alt="The Eye">
+			<div>
+				<p>Brody Childs' Portfolio</p>
+				<p>Basic Access</p>
+				<p><i>This one's for the bots.</i></p>
+			</div>
+		</div>
+		<hr />
+		<div class="readouts">
+			<p><span class="highlight info">[INFO]</span> Establising SSH connection...</p>
+			<p><span class="highlight warn">[WARN]</span> <i>This website is best experienced on a Desktop Browser with WebGL2 support!</i></p>
+			<p><span class="highlight warn">[WARN]</span> <i>You are currently viewing the alternative homepage.</i></p>
+			<p><span class="highlight info">[INFO]</span> Fetching page URLs...</p>
+			<p><span class="highlight info">[INFO]</span> Available page URLs:</p>
+
+			<!-- NOTE: These get picked between! -->
+			<ul class="jsRequired" style="display: none;">
+				<li><span class="highlight url">[URL]</span> <a href="/" class="button">/index</a></li>
+				<li><span class="highlight url">[URL]</span> <button onclick="showSubPage('about')">/about</button></li>
+				<li><span class="highlight url">[URL]</span> <button onclick="showSubPage('contact')">/contact</button></li>
+				<li><span class="highlight url">[URL]</span> <button onclick="showSubPage('projects')">/projects</button></li>
+				<li><span class="highlight url">[URL]</span> <button onclick="showSubPage('resume')">/resume</button></li>
+				<li><span class="highlight url">[URL]</span> <a href="licenses.html" target="_blank" class="button">/licenses</a></li>
+			</ul>
+			<noscript>
+				<p><span class="highlight error">[ERROR]</span> <i>JavaScript is required for this website to function.</i></p>
+				<p><span class="highlight error">[ERROR]</span> <i>Providing direct links! Page content might not load!</i></p>
+				<ul class="jsRequired">
+					<li><span class="highlight url">[URL]</span> <a href="pages/about.html" target="_blank">/about</a></li>
+					<li><span class="highlight url">[URL]</span> <a href="pages/contact.html" target="_blank">/contact</a></li>
+					<li><span class="highlight url">[URL]</span> <a href="pages/projects.html" target="_blank">/projects</a></li>
+					<li><span class="highlight url">[URL]</span> <a href="pages/resume.html" target="_blank">/resume</a></li>
+					<li><span class="highlight url">[URL]</span> <a href="licenses.html" target="_blank">/licenses</a></li>
+				</ul>
+			</noscript>
+		</div>
+		<div class="cli">
+			<span class="prompt">&gt;</span>
+			<input type="text" focus />
+			<span class="cursor">_</span>
+		</div>
+	</div>
+	<script>
+		// Show the content for users with JavaScript enabled
+		document.addEventListener("DOMContentLoaded", function() {
+			var jsContents = document.querySelectorAll('.jsRequired');
+			jsContents.forEach(function(jsContent) {
+				jsContent.style.display = 'block';
+			});
+		});
+	</script>
+</body>
+</html>
