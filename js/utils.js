@@ -1,6 +1,7 @@
 // Web4 Portfolio: JS-Rust Linked Functions
 
 // NOTE: Updates not showing up? Try clearing your browser cache!
+// WARN: `window.onresize` is defined within Godot!
 
 // MARK: Constants
 const MAIN_CANVAS_QUERY = "#canvas";
@@ -24,12 +25,16 @@ function timestampHash() {
 }
 
 // MARK: navigateToPage
-function navigateToPage(pagePath) {
+function navigateToPage(pagePath, newTab = true) {
     // Report
     console.log("Navigating to page: " + pagePath);
 
     // Go to the page
-    window.location.href = pagePath;
+    if (newTab) {
+        window.open(pagePath, "_blank");
+    } else {
+        window.location.href = pagePath;
+    }
 }
 
 // MARK: showSubPage
@@ -64,9 +69,9 @@ function showSubPage(pageKey) {
     const titleBarControls = document.createElement("div");
     titleBarControls.classList.add("title-bar-controls");
 
-    const helpButton = document.createElement("button");
-    helpButton.setAttribute("aria-label", "Help");
-    // TODO: Add a help action
+    // const helpButton = document.createElement("button");
+    // helpButton.setAttribute("aria-label", "Help");
+    // // TODO: Add a help action
 
     const closeButton = document.createElement("button");
     closeButton.setAttribute("aria-label", "Close");
@@ -74,7 +79,7 @@ function showSubPage(pageKey) {
         closePopupPage(windowFrameId);
     });
 
-    titleBarControls.appendChild(helpButton);
+    // titleBarControls.appendChild(helpButton);
     titleBarControls.appendChild(closeButton);
 
     titleBar.appendChild(titleBarText);
