@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>The Mechanical Painter | The Museum Portfolio (Text Mode)</title>
+	<link rel="stylesheet" href="../../static/css/theme.css">
+	<link rel="stylesheet" href="../../static/css/shared.css">
+	<link rel="manifest" href="../../manifest.webmanifest">
+	<link rel="icon" href="../../media/icon.ico" sizes="16x16 32x32 48x48">
+	<link rel="apple-touch-icon" href="../../media/icon-180.png">
+	<meta name="description" content="The Mechanical Painter is an experimental composite system that utilizes modern image processing techniques to imitate a true painterly style conversion of standard bitmap images like pictures...">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="The Museum Portfolio">
+	<meta property="og:title" content="The Mechanical Painter">
+	<meta property="og:description" content="The Mechanical Painter is an experimental composite system that utilizes modern image processing techniques to imitate a true painterly style conversion of standard bitmap images like pictures...">
+	<meta property="og:image" content="../../media/exhibits/mechanical-painter/cover-preview.jpg">
+	<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="terminal" data-site-root="../../" data-pages='["the-museum", "ia-blue-suns-golden-void", "ia-evening-shift", "ia-gift-of-the-clans", "ia-ice-breaker", "ia-in-the-hull", "ia-non-deos-nec-dominis", "ia-pre-run", "ia-shift-change", "ia-uruk-city-of-concrete-teeth", "ia-valkyrie", "iw-europa", "iw-launch-day", "ia-book-1", "argui", "docket", "mbm-visualizer", "piconote", "cistercian-font", "mechanical-painter", "trippy-hike", "code-roulette", "lag", "rimworld-antfarm", "atrium", "lobby"]' data-config='{"dosFlag": "dos", "exhibitQuery": "exhibit", "exhibitsUrl": "exhibits/", "forwards": {"lobby": {"licenses": "licenses/"}}, "licensesUrl": "licenses/", "panelQuery": "panel", "resumeUrl": "exhibits/lobby/"}'>
+
+<div class="term-page">
+<pre><span class="titlebar"><span>MUSEUM.EXE &middot; /exhibits/mechanical-painter</span><span>TEXT MODE</span></span></pre>
+<!-- Tells a touch device, which the shell sends here, that it is reading the text version of the museum -->
+<div class="mobile-banner" role="note">
+<pre class="mobile-letters t-warn" aria-label="Text mode">███ ███ █ █ ███     █   █ ███ ██  ███
+ █  █   █ █  █      ██ ██ █ █ █ █ █
+ █  ██   █   █      █ █ █ █ █ █ █ ██
+ █  █   █ █  █      █   █ █ █ █ █ █
+ █  ███ █ █  █      █   █ ███ ██  ███</pre>
+<pre>You are reading the text version of the museum. Every exhibit is here, but walking the 3D museum takes a keyboard and mouse, so visit on a computer for the full experience.</pre>
+</div>
+
+<pre><span class="t-hi">C:\MUSEUM&gt;</span> TYPE EXHIBITS\MECHANICAL-PAINTER.TXT
+
+<span class="t-hi">THE MECHANICAL PAINTER</span>
+<span class="t-cyan">Wing:</span> Tools &amp; Experiments   <span class="t-cyan">Room:</span> The Mechanical Painter
+================================================================</pre>
+<div class="term-doc">
+<p>The Mechanical Painter is an experimental composite system that utilizes modern image processing techniques to imitate a true painterly style conversion of standard bitmap images like pictures into digital paintings.</p>
+<p>I first had the idea for this process after studying the works of Monet and Van Gogh. Standing in a museum looking at one of Monet's works, I imagined breaking the painting down into the requisite steps of layering required to produce the final product. This involves blocking out the scene, filling spaces, and edging at increasing levels of detail. The variance in style coming from how the brush strokes and palette is delivered. Suffice to say, the problem was an intriguing one to me.</p>
+<p>I started with a basic <a href="https://en.wikipedia.org/wiki/Kuwahara_filter" target="_blank">Kuwahara algorithm</a>. This filter was originally used for medical image analysis, but now is used in a number of artistic applications and machine learning tasks. Though for my purposes, the end result produced something that while by definition was "painterly" did not embody what I was looking for.</p>
+<p>Soon, I discovered numerous research papers with <a href="https://scholar.google.com/citations?user=ZcWO2AEAAAAJ&hl=en" target="_blank">Aaron Hertzmann</a> as a contributor. Many of which, suggested modifications to the classic Kuwahara algorithm and presented additional observations into the process of converting digital images into something that really reads as a painting.</p>
+<p>After I collated this research, it was clear to me that many of the papers pertaining to my end goal did not necessarily touch current edge level systems. This includes things like single image depth estimation, tunable facial recognition, single image shape segmentation, and other systems that, today, can be run on a consumer GPU but were pure fantasy when the papers were written.</p>
+<p>My approach to painterly conversion takes these modern image analysis and uses them to produce a novel guidance matrix for placing strokes onto a canvas. From there, a Kuwahara filtered reference is created through a modified, paint stroke focused implementation. Then, strokes are placed along a weight ladder guided by the matrix as such to retain curvature, shading, and edges. The final result appearing as a true painting.</p>
+<p>More insight into the system can be found in the other artifacts of this exhibit.</p>
+
+</div>
+<pre><span class="t-hi">ARTIFACT: A PAINTING</span> (image)</pre>
+<div class="term-doc">
+<p>This is the output painted image resulting from a run on one of my photographs. Note the strokes and general sense of progression to the way image is built up from the canvas. This effect is what the Mechanical Painter project set out to achieve.</p>
+</div>
+<pre><span class="t-hi">ARTIFACT: SIDE BY SIDE</span> (image)</pre>
+<div class="term-doc">
+<p>The image on the left is the original photograph as I took it. The image on the right is the output painting on the "medium" conversion preset.</p>
+<p>Note how the texture of the concrete has been smoothed and the lower leaves appear to have been painted with a lower number of smaller strokes than the main flower. This is an effect of the novel composite stroke guidance matrix.</p>
+</div>
+<pre><span class="t-hi">ARTIFACT: STAGES OF PAINTING</span> (image)</pre>
+<div class="term-doc">
+<p>Depicted here is the step progression of painting an image using the standard "medium" preset.</p>
+<p>The order is as follows:</p>
+<ol>
+	<li><p>Blank canvas is created.</p></li>
+	<li><p>Modified Kuwahara filter is run on the original image.</p></li>
+	<li><p>Segmented shapes are blocked out.</p></li>
+	<li><p>Corse large brush strokes are added for fill.</p></li>
+	<li><p>Smaller brush strokes are added for fill.</p></li>
+	<li><p>Detail brush strokes are added for fill.</p></li>
+	<li><p>Smaller brush strokes are added for edging.</p></li>
+	<li><p>Detail brush strokes are added for edging.</p></li>
+	<li><p>The output painting is produced.</p></li>
+</ol>
+</div>
+<pre>----------------------------------------------------------------
+<span class="t-cyan">LINKS</span>
+  [1] <a class="term-link" href="../../?exhibit=mechanical-painter" data-cmd="enter">Enter the museum at this exhibit</a>
+  [2] <a class="term-link" href="../../exhibits/" data-cmd="dir">All exhibits</a>
+  [3] <a class="term-link" href="../../licenses/" data-cmd="licenses">Licenses</a>
+</pre>
+
+<pre id="termOut"></pre>
+<div class="prompt-line" id="promptLine" hidden><span>C:\MUSEUM&gt; </span><input id="termInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Command"></div>
+</div>
+<script src="../../static/js/terminal.js"></script>
+</body>
+</html>

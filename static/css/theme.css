@@ -1,0 +1,530 @@
+/* The Museum theme: Neo-Roman marble and Eco-Brutalist concrete, plus the IBM VGA text mode. Shared by every HTML surface. */
+
+/* MARK: Fonts */
+@font-face {
+	font-family: "Cinzel";
+	src: url("../fonts/cinzel.woff2") format("woff2");
+	font-weight: 400 900;
+	font-display: block;
+}
+
+@font-face {
+	font-family: "Archivo";
+	src: url("../fonts/archivo.woff2") format("woff2");
+	font-weight: 100 900;
+	font-display: block;
+}
+
+@font-face {
+	font-family: "VGA";
+	src: url("../fonts/vga.woff") format("woff");
+	font-display: block;
+}
+
+/* MARK: Tokens */
+/* The marble, ink, concrete, and fresco wing accents come from `shared.css` */
+:root {
+	/* Neo-Roman: marble and plaster */
+	--marble-2: #e8e2d4;
+	--vein: #cfc5b1;
+	/* Eco-Brutalist: concrete and moss */
+	--concrete-2: #6d6e68;
+	--concrete-3: #3d3e3a;
+	--moss: #5b7a36;
+	--moss-2: #8aa858;
+	/* Active accent and its contrast-safe text color, set per wing */
+	--accent: var(--pompeian);
+	--accent-on: var(--marble);
+	/* Terminal: IBM VGA text mode palette */
+	--t-bg: #000000;
+	--t-fg: #aaaaaa;
+	--t-hi: #ffffff;
+	--t-green: #55ff55;
+	--t-yellow: #ffff55;
+	--t-red: #ff5555;
+	--t-cyan: #55ffff;
+	--t-blue: #0000aa;
+
+	--serif: "Cinzel", "Trajan Pro", Georgia, serif;
+	--sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+	--mono: "VGA", "Courier New", monospace;
+
+	/* Concrete grain as an inline SVG noise tile */
+	--grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+	/* Marble veining as an inline SVG tile */
+	--veins: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='480' height='480'><filter id='v' x='0' y='0' width='100%' height='100%'><feTurbulence type='fractalNoise' baseFrequency='.004 .011' numOctaves='5' seed='11' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .46  0 0 0 0 .4  1 0 0 0 0'/><feComponentTransfer><feFuncA type='table' tableValues='0 0 0 0 0 0 .32 0 .12 0 0 0 0 0'/></feComponentTransfer></filter><rect width='100%' height='100%' filter='url(%23v)'/></svg>");
+	--veins-soft: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='480' height='480'><filter id='v' x='0' y='0' width='100%' height='100%'><feTurbulence type='fractalNoise' baseFrequency='.004 .011' numOctaves='5' seed='11' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .46  0 0 0 0 .4  1 0 0 0 0'/><feComponentTransfer><feFuncA type='table' tableValues='0 0 0 0 0 0 .13 0 .05 0 0 0 0 0'/></feComponentTransfer></filter><rect width='100%' height='100%' filter='url(%23v)'/></svg>");
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+	background: var(--marble-2);
+	color: var(--ink);
+	font-family: var(--sans);
+	font-size: 16px;
+	line-height: 1.55;
+}
+
+/* MARK: Terminal */
+.terminal {
+	background: var(--t-bg);
+	color: var(--t-fg);
+	font-family: var(--mono);
+	font-size: 16px;
+	line-height: 16px;
+	position: relative;
+	padding: 20px;
+	-webkit-font-smoothing: none;
+	font-smooth: never;
+	text-rendering: optimizeSpeed;
+}
+
+.terminal pre {
+	margin: 0;
+	font: inherit;
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.t-hi { color: var(--t-hi); }
+
+.t-ok { color: var(--t-green); }
+
+.t-warn { color: var(--t-yellow); }
+
+.t-err { color: var(--t-red); }
+
+.t-cyan { color: var(--t-cyan); }
+
+.t-inv { background: var(--t-fg); color: var(--t-bg); }
+
+.cursor {
+	display: inline-block;
+	width: 9px;
+	height: 3px;
+	background: var(--t-fg);
+	vertical-align: -1px;
+	animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* CRT scanlines over any terminal surface */
+.terminal::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: repeating-linear-gradient(180deg, rgba(0,0,0,0) 0 2px, rgba(0,0,0,.28) 2px 3px);
+	pointer-events: none;
+	z-index: 2;
+}
+
+/* MARK: Panels */
+.panel {
+	position: relative;
+	z-index: 1;
+	width: min(640px, 100%);
+	background-color: var(--marble);
+	background-image: var(--veins-soft);
+	border: 3px solid var(--ink);
+	border-bottom-width: 14px;
+	border-bottom-color: var(--concrete-3);
+}
+
+.panel-bar {
+	display: flex;
+	align-items: stretch;
+	background-color: var(--concrete-2);
+	background-image: var(--grain);
+	color: var(--marble);
+	border-bottom: 3px solid var(--ink);
+}
+
+.panel-bar .stripe {
+	width: 14px;
+	background: var(--accent);
+	border-right: 3px solid var(--ink);
+}
+
+.panel-bar h3 {
+	flex: 1;
+	margin: 0;
+	padding: 10px 14px 8px;
+	font-family: var(--serif);
+	font-weight: 700;
+	font-size: 15px;
+	letter-spacing: .2em;
+	text-transform: uppercase;
+	text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.panel-body {
+	padding: 26px 28px 24px;
+	max-height: min(70vh, 640px);
+	overflow: auto;
+}
+
+.panel-body h4 {
+	font-family: var(--serif);
+	font-weight: 900;
+	font-size: clamp(24px, 4vw, 34px);
+	letter-spacing: .05em;
+	line-height: 1.1;
+	margin: 0 0 4px;
+	text-shadow: 0 1px 0 rgba(255,255,255,.8), 0 -1px 0 rgba(0,0,0,.18);
+}
+
+.panel-body .sub {
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: .14em;
+	font-size: 12px;
+	color: var(--concrete-2);
+	margin-bottom: 16px;
+}
+
+.panel-body hr {
+	border: 0;
+	height: 3px;
+	background: linear-gradient(90deg, var(--moss) 0 30%, var(--concrete) 30%);
+	margin: 18px 0;
+}
+
+.panel-body p { margin: 0 0 12px; max-width: 68ch; }
+
+.panel.wide { width: min(900px, 100%); }
+
+.panel-bar .close {
+	width: 46px;
+	border: 0;
+	border-left: 3px solid var(--ink);
+	background: var(--concrete-3);
+	color: var(--marble);
+	font-family: var(--sans);
+	font-weight: 800;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.panel-bar .close:hover, .panel-bar .close:focus-visible { background: var(--accent); color: var(--accent-on); outline: none; }
+
+.panel-body a:not(.btn) { color: inherit; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+
+.panel-body a:not(.btn):hover, .panel-body a:not(.btn):focus-visible { background: var(--accent); color: var(--accent-on); outline: none; }
+
+/* Author media fits the panel */
+.fragment img, .fragment video { display: block; max-width: 100%; height: auto; margin: 0 0 12px; border: 3px solid var(--ink); }
+
+/* A panel image's tiny placeholder, upscaled into a blur until the image itself loads */
+.blur-up { background-size: cover; background-repeat: no-repeat; }
+
+.blur-up.loaded { background-image: none !important; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 14px; }
+
+.tag {
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: .08em;
+	text-transform: uppercase;
+	padding: 3px 8px 2px;
+	border: 2px solid var(--ink);
+	background: var(--marble-2);
+}
+
+.tag.accent { background: var(--accent); color: var(--accent-on); }
+
+/* Exhibit page: the cover beside the write-up */
+.exhibit {
+	display: grid;
+	grid-template-columns: 1.1fr 1fr;
+	gap: 26px;
+}
+
+.hero img { display: block; width: 100%; height: auto; border: 3px solid var(--ink); }
+
+.caption {
+	font-size: 13px;
+	color: var(--concrete-2);
+	margin-top: 6px;
+	font-style: italic;
+}
+
+.artifacts { list-style: none; padding: 0; margin: 0; }
+
+.artifacts li {
+	display: flex;
+	gap: 12px;
+	align-items: baseline;
+	padding: 8px 0;
+	border-bottom: 2px solid var(--marble-2);
+}
+
+.artifacts .kind {
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	color: var(--accent);
+	min-width: 80px;
+}
+
+/* MARK: Scrollbars */
+/* Concrete thumb on a marble track, square like everything else */
+/* WARN: Chromium 121+ ignores every `::-webkit-scrollbar` rule on an element with a standard scrollbar property, so the standard ones apply only where those rules are unsupported (Firefox). */
+@supports not selector(::-webkit-scrollbar) {
+	.panel-body {
+		scrollbar-width: auto;
+		scrollbar-color: var(--concrete-2) var(--marble-2);
+	}
+}
+
+.panel-body::-webkit-scrollbar { width: 16px; height: 16px; }
+
+.panel-body::-webkit-scrollbar-track { background: var(--marble-2); border-left: 3px solid var(--ink); }
+
+.panel-body::-webkit-scrollbar-thumb {
+	background-color: var(--concrete-2);
+	background-image: var(--grain);
+	border: 3px solid var(--ink);
+	border-right-width: 0;
+}
+
+.panel-body::-webkit-scrollbar-thumb:hover { background-color: var(--accent); }
+
+/* MARK: Buttons */
+.links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 10px 16px 9px;
+	font-family: var(--sans);
+	font-weight: 800;
+	font-size: 13px;
+	letter-spacing: .14em;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: var(--marble);
+	background: var(--ink);
+	border: 3px solid var(--ink);
+	cursor: pointer;
+}
+
+.btn:hover, .btn:focus-visible { background: var(--accent); color: var(--accent-on); outline: none; }
+
+.btn.ghost { background: transparent; color: var(--ink); }
+
+.btn.ghost:hover, .btn.ghost:focus-visible { background: var(--ink); color: var(--marble); }
+
+.btn.big { font-size: 16px; padding: 14px 26px 13px; }
+
+/* MARK: Controls */
+.controls {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 8px 22px;
+	margin: 6px 0 18px;
+}
+
+.control { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+
+.keys { display: flex; align-items: center; gap: 2px; }
+
+/* Between keys that each do the same thing on their own */
+.keys .or { padding: 0 4px; color: var(--ink); }
+
+/* Each key is a Kenney glyph inlined with its cap in ink, so it follows the theme */
+.key { width: 30px; height: 30px; color: var(--ink); }
+
+.key svg { display: block; width: 100%; height: 100%; }
+
+.welcome-foot {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 14px;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 8px;
+}
+
+.welcome-foot small { color: var(--concrete-2); max-width: 36ch; }
+
+/* MARK: Text mode pages */
+.term-page { max-width: 80ch; margin: 0 auto; }
+
+.term-page .titlebar {
+	background: var(--t-fg);
+	color: var(--t-bg);
+	display: flex;
+	justify-content: space-between;
+	padding: 0 9px;
+}
+
+.term-page a:not(.btn) { color: var(--t-cyan); text-decoration: none; }
+
+.term-page a:not(.btn):hover, .term-page a:not(.btn):focus-visible { background: var(--t-cyan); color: var(--t-bg); outline: none; }
+
+/* Shown only on a touch device, which the shell sends to text mode */
+.mobile-banner {
+	display: none;
+	margin: 16px 0;
+	padding: 12px;
+	border: 4px double var(--t-yellow);
+}
+
+.mobile-banner .mobile-letters { white-space: pre; overflow: hidden; margin-bottom: 12px; }
+
+.term-page .prompt-line {
+	display: flex;
+	align-items: baseline;
+	white-space: pre;
+}
+
+.term-page .prompt-line[hidden] { display: none; }
+
+.term-page .prompt-line input {
+	flex: 1;
+	min-width: 0;
+	font: inherit;
+	color: var(--t-hi);
+	background: transparent;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	outline: none;
+	caret-color: var(--t-hi);
+}
+
+/* A text mode screen shown as a panel: the panel scrolls, and the session inside it carries the scanlines over all of its length */
+.panel-body.term-panel { padding: 0; background: var(--t-bg); }
+
+.term-panel .term-page { max-width: none; min-height: 100%; }
+
+/* MARK: DOS windows */
+/* A text mode panel as a DOS window after EDIT.COM: a blue field in a double line frame between a grey title bar and status line, with a hard shadow */
+.panel.dos {
+	background: var(--t-blue);
+	border: 0;
+	box-shadow: 16px 16px 0 var(--t-bg);
+	font-family: var(--mono);
+	font-size: 16px;
+	line-height: 16px;
+	-webkit-font-smoothing: none;
+}
+
+.dos-bar, .dos-status {
+	display: flex;
+	align-items: stretch;
+	background: var(--t-fg);
+	color: var(--t-bg);
+}
+
+.dos-bar h3 {
+	flex: 1;
+	margin: 0;
+	padding: 4px 6ch 4px 0;
+	font: inherit;
+	text-align: center;
+}
+
+.dos-bar .close {
+	border: 0;
+	padding: 4px 1ch;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+}
+
+.dos-bar .close:hover, .dos-bar .close:focus-visible { background: var(--accent); color: var(--accent-on); outline: none; }
+
+.panel.dos .panel-body.term-panel { padding: 8px; background: var(--t-blue); }
+
+.panel.dos .terminal { background: var(--t-blue); color: var(--t-hi); border: 4px double var(--t-fg); }
+
+.panel.dos .term-doc em, .panel.dos .term-doc i { color: var(--t-yellow); }
+
+/* Scanlines suit a full screen session, but muddy a window's blue and fight its frame */
+.panel.dos .terminal::before { display: none; }
+
+.dos-status { gap: 3ch; padding: 4px 1ch; }
+
+.dos-status button {
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+}
+
+.dos-status button[hidden] { display: none; }
+
+.dos-status kbd { font: inherit; padding: 0 1ch; background: var(--t-bg); color: var(--t-fg); }
+
+.dos-status button:hover kbd, .dos-status button:focus-visible kbd { background: var(--accent); color: var(--accent-on); }
+
+.dos-status button:focus-visible { outline: none; }
+
+/* The museum's accent marks the option under the pointer, as it does a panel's close button */
+.panel.dos .term-page a:not(.btn):hover, .panel.dos .term-page a:not(.btn):focus-visible { background: var(--accent); color: var(--accent-on); }
+
+.dos-status .dos-place { margin-left: auto; }
+
+/* Author fragments in text mode: one font, one size, a blank line between blocks */
+.term-doc { margin-top: 16px; }
+
+#termOut:not(:empty) { margin-top: 16px; }
+
+.term-doc p, .term-doc ul, .term-doc ol, .term-doc pre, .term-doc blockquote, .term-doc h1, .term-doc h2, .term-doc h3, .term-doc h4 { margin: 0 0 16px; }
+
+.term-doc h1, .term-doc h2, .term-doc h3, .term-doc h4 { font: inherit; color: var(--t-hi); text-transform: uppercase; }
+
+.term-doc b, .term-doc strong { font-weight: inherit; color: var(--t-hi); }
+
+.term-doc em, .term-doc i { font-style: inherit; color: var(--t-yellow); }
+
+.term-doc ul, .term-doc ol { padding-left: 4ch; }
+
+.term-doc ul { list-style: none; }
+
+.term-doc ul > li::before { content: "* "; margin-left: -2ch; }
+
+.term-doc blockquote { padding-left: 2ch; border-left: 1ch solid var(--t-fg); }
+
+/* An image link that previews its image on hover, kept to a fixed width */
+.term-image { position: relative; }
+
+.term-image img {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	z-index: 3;
+	width: 320px;
+	height: auto;
+	border: 2px solid var(--t-cyan);
+	background: var(--t-bg);
+}
+
+.term-image:hover img, .term-image:focus-visible img { display: block; }
+
+/* MARK: Responsive */
+@media (max-width: 760px) {
+	.terminal { font-size: 14px; line-height: 15px; padding: 14px; }
+	.controls { grid-template-columns: 1fr; }
+	.exhibit { grid-template-columns: 1fr; }
+	.panel-body { padding: 20px 16px 18px; max-height: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.cursor { animation: none; }
+}

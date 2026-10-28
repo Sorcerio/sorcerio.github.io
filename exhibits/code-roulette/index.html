@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Code Roulette | The Museum Portfolio (Text Mode)</title>
+	<link rel="stylesheet" href="../../static/css/theme.css">
+	<link rel="stylesheet" href="../../static/css/shared.css">
+	<link rel="manifest" href="../../manifest.webmanifest">
+	<link rel="icon" href="../../media/icon.ico" sizes="16x16 32x32 48x48">
+	<link rel="apple-touch-icon" href="../../media/icon-180.png">
+	<meta name="description" content="Code Roulette is a terminal interface based (TUI), online multiplayer, Russian Roulette game where the loser executes the winner&#39;s Python payload file. The project started as a way to exercise my...">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="The Museum Portfolio">
+	<meta property="og:title" content="Code Roulette">
+	<meta property="og:description" content="Code Roulette is a terminal interface based (TUI), online multiplayer, Russian Roulette game where the loser executes the winner&#39;s Python payload file. The project started as a way to exercise my...">
+	<meta property="og:image" content="../../media/exhibits/code-roulette/cover-preview.jpg">
+	<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="terminal" data-site-root="../../" data-pages='["the-museum", "ia-blue-suns-golden-void", "ia-evening-shift", "ia-gift-of-the-clans", "ia-ice-breaker", "ia-in-the-hull", "ia-non-deos-nec-dominis", "ia-pre-run", "ia-shift-change", "ia-uruk-city-of-concrete-teeth", "ia-valkyrie", "iw-europa", "iw-launch-day", "ia-book-1", "argui", "docket", "mbm-visualizer", "piconote", "cistercian-font", "mechanical-painter", "trippy-hike", "code-roulette", "lag", "rimworld-antfarm", "atrium", "lobby"]' data-config='{"dosFlag": "dos", "exhibitQuery": "exhibit", "exhibitsUrl": "exhibits/", "forwards": {"lobby": {"licenses": "licenses/"}}, "licensesUrl": "licenses/", "panelQuery": "panel", "resumeUrl": "exhibits/lobby/"}'>
+
+<div class="term-page">
+<pre><span class="titlebar"><span>MUSEUM.EXE &middot; /exhibits/code-roulette</span><span>TEXT MODE</span></span></pre>
+<!-- Tells a touch device, which the shell sends here, that it is reading the text version of the museum -->
+<div class="mobile-banner" role="note">
+<pre class="mobile-letters t-warn" aria-label="Text mode">███ ███ █ █ ███     █   █ ███ ██  ███
+ █  █   █ █  █      ██ ██ █ █ █ █ █
+ █  ██   █   █      █ █ █ █ █ █ █ ██
+ █  █   █ █  █      █   █ █ █ █ █ █
+ █  ███ █ █  █      █   █ ███ ██  ███</pre>
+<pre>You are reading the text version of the museum. Every exhibit is here, but walking the 3D museum takes a keyboard and mouse, so visit on a computer for the full experience.</pre>
+</div>
+
+<pre><span class="t-hi">C:\MUSEUM&gt;</span> TYPE EXHIBITS\CODE-ROULETTE.TXT
+
+<span class="t-hi">CODE ROULETTE</span>
+<span class="t-cyan">Wing:</span> Games &amp; Engines   <span class="t-cyan">Room:</span> Gallery I
+<span class="t-cyan">Tags:</span> game, multiplayer, python, russian-roulette, terminal, terminal-game, tui
+================================================================</pre>
+<div class="term-doc">
+<p>Code Roulette is a terminal interface based (TUI), online multiplayer, Russian Roulette game where the loser executes the winner&#x27;s Python payload file.</p>
+<p>The project started as a way to exercise my skills with multiplayer connectivity in a simple game environment. Later, after a conversation on the principles of the system, an idea came across the table: what if the program executed code if you lost? Taking this in stride, I put together the program as it exists today.</p>
+<p>To play, users connect to a lobby complete with chat and wait for the host to start the game. Once started, each player must select a payload file that will be executed by the opposing player if they lose. Then, before the game begins, each player is shown the code that the other has selected. This allows for each player to review the code that might execute on their system so the wager is an informed one. Once both players accept the terms, the game begins and functions as standard. Then, when a player loses, the code is executed in real time on their machine broadcasting the terminal output to both players.</p>
+</div>
+<pre>----------------------------------------------------------------
+<span class="t-cyan">LINKS</span>
+  [1] <a class="term-link" href="../../?exhibit=code-roulette" data-cmd="enter">Enter the museum at this exhibit</a>
+  [2] <a class="term-link" href="https://github.com/Sorcerio/Code-Roulette" target="_blank" rel="noopener">Repository</a>
+  [3] <a class="term-link" href="../../exhibits/" data-cmd="dir">All exhibits</a>
+  [4] <a class="term-link" href="../../licenses/" data-cmd="licenses">Licenses</a>
+</pre>
+
+<pre id="termOut"></pre>
+<div class="prompt-line" id="promptLine" hidden><span>C:\MUSEUM&gt; </span><input id="termInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Command"></div>
+</div>
+<script src="../../static/js/terminal.js"></script>
+</body>
+</html>

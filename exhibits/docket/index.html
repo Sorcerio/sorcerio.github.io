@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Docket | The Museum Portfolio (Text Mode)</title>
+	<link rel="stylesheet" href="../../static/css/theme.css">
+	<link rel="stylesheet" href="../../static/css/shared.css">
+	<link rel="manifest" href="../../manifest.webmanifest">
+	<link rel="icon" href="../../media/icon.ico" sizes="16x16 32x32 48x48">
+	<link rel="apple-touch-icon" href="../../media/icon-180.png">
+	<meta name="description" content="Docket is a software development ticket system that lives within your repository. I built the system from the ground up to support three primary mediums of access: by a human in the file system...">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="The Museum Portfolio">
+	<meta property="og:title" content="Docket">
+	<meta property="og:description" content="Docket is a software development ticket system that lives within your repository. I built the system from the ground up to support three primary mediums of access: by a human in the file system...">
+	<meta property="og:image" content="../../media/exhibits/docket/cover-preview.jpg">
+	<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="terminal" data-site-root="../../" data-pages='["the-museum", "ia-blue-suns-golden-void", "ia-evening-shift", "ia-gift-of-the-clans", "ia-ice-breaker", "ia-in-the-hull", "ia-non-deos-nec-dominis", "ia-pre-run", "ia-shift-change", "ia-uruk-city-of-concrete-teeth", "ia-valkyrie", "iw-europa", "iw-launch-day", "ia-book-1", "argui", "docket", "mbm-visualizer", "piconote", "cistercian-font", "mechanical-painter", "trippy-hike", "code-roulette", "lag", "rimworld-antfarm", "atrium", "lobby"]' data-config='{"dosFlag": "dos", "exhibitQuery": "exhibit", "exhibitsUrl": "exhibits/", "forwards": {"lobby": {"licenses": "licenses/"}}, "licensesUrl": "licenses/", "panelQuery": "panel", "resumeUrl": "exhibits/lobby/"}'>
+
+<div class="term-page">
+<pre><span class="titlebar"><span>MUSEUM.EXE &middot; /exhibits/docket</span><span>TEXT MODE</span></span></pre>
+<!-- Tells a touch device, which the shell sends here, that it is reading the text version of the museum -->
+<div class="mobile-banner" role="note">
+<pre class="mobile-letters t-warn" aria-label="Text mode">███ ███ █ █ ███     █   █ ███ ██  ███
+ █  █   █ █  █      ██ ██ █ █ █ █ █
+ █  ██   █   █      █ █ █ █ █ █ █ ██
+ █  █   █ █  █      █   █ █ █ █ █ █
+ █  ███ █ █  █      █   █ ███ ██  ███</pre>
+<pre>You are reading the text version of the museum. Every exhibit is here, but walking the 3D museum takes a keyboard and mouse, so visit on a computer for the full experience.</pre>
+</div>
+
+<pre><span class="t-hi">C:\MUSEUM&gt;</span> TYPE EXHIBITS\DOCKET.TXT
+
+<span class="t-hi">DOCKET</span>
+<span class="t-cyan">Wing:</span> Tools &amp; Experiments   <span class="t-cyan">Room:</span> Gallery I
+<span class="t-cyan">Tags:</span> Python
+================================================================</pre>
+<div class="term-doc">
+<p>Docket is a software development ticket system that lives within your repository. I built the system from the ground up to support three primary mediums of access: by a human in the file system accessing Markdown files, by a human using the program's command line interface, and by agentic systems using a tailor fit MCP.</p>
+<p>The concept behind the project is informed through the experience and learnings I've gathered through real development workflows under an evolving agentic SDLC. While the obvious primary benefit is not having to pay for a system like Jira or Linear, local ticket systems per repo help in other ways as well. For example, because the tickets are registered in the repository itself you have history of each version of the ticket. This matters for record keeping, but also provides any coding agents working on the system easy access to the decision chain that led to the program existing as it does at the time of query. Doing this provides context that would otherwise be assumed; a state that is not ideal when working with prediction matrixes. Further, among other values, the agentic system building the code can directly access the Docket MCP to propose new tickets based on emergent bugs or discussion with the human operator thereby utilizing the system as a two-way street that other remote ticket systems struggle to replicate.</p>
+</div>
+<pre>----------------------------------------------------------------
+<span class="t-cyan">LINKS</span>
+  [1] <a class="term-link" href="../../?exhibit=docket" data-cmd="enter">Enter the museum at this exhibit</a>
+  [2] <a class="term-link" href="https://github.com/Sorcerio/Docket" target="_blank" rel="noopener">Repository</a>
+  [3] <a class="term-link" href="../../exhibits/" data-cmd="dir">All exhibits</a>
+  [4] <a class="term-link" href="../../licenses/" data-cmd="licenses">Licenses</a>
+</pre>
+
+<pre id="termOut"></pre>
+<div class="prompt-line" id="promptLine" hidden><span>C:\MUSEUM&gt; </span><input id="termInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Command"></div>
+</div>
+<script src="../../static/js/terminal.js"></script>
+</body>
+</html>

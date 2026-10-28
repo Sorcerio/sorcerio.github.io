@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>About the Museum | The Museum Portfolio (Text Mode)</title>
+	<link rel="stylesheet" href="../../static/css/theme.css">
+	<link rel="stylesheet" href="../../static/css/shared.css">
+	<link rel="manifest" href="../../manifest.webmanifest">
+	<link rel="icon" href="../../media/icon.ico" sizes="16x16 32x32 48x48">
+	<link rel="apple-touch-icon" href="../../media/icon-180.png">
+	<meta name="description" content="The Museum, as you stand in today, is a first person portfolio built with Godot 4.7 and exported to the web through WebAssembly. A Python build reads the manifest, validates every exhibit, lays...">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="The Museum Portfolio">
+	<meta property="og:title" content="About the Museum">
+	<meta property="og:description" content="The Museum, as you stand in today, is a first person portfolio built with Godot 4.7 and exported to the web through WebAssembly. A Python build reads the manifest, validates every exhibit, lays...">
+	<meta property="og:image" content="../../media/exhibits/the-museum/cover-preview.jpg">
+	<meta property="og:image:alt" content="The About the Museum room in greybox: the Web4 miniature on the left wall and the layout demo building a museum inside its outline.">
+	<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="terminal" data-site-root="../../" data-pages='["the-museum", "ia-blue-suns-golden-void", "ia-evening-shift", "ia-gift-of-the-clans", "ia-ice-breaker", "ia-in-the-hull", "ia-non-deos-nec-dominis", "ia-pre-run", "ia-shift-change", "ia-uruk-city-of-concrete-teeth", "ia-valkyrie", "iw-europa", "iw-launch-day", "ia-book-1", "argui", "docket", "mbm-visualizer", "piconote", "cistercian-font", "mechanical-painter", "trippy-hike", "code-roulette", "lag", "rimworld-antfarm", "atrium", "lobby"]' data-config='{"dosFlag": "dos", "exhibitQuery": "exhibit", "exhibitsUrl": "exhibits/", "forwards": {"lobby": {"licenses": "licenses/"}}, "licensesUrl": "licenses/", "panelQuery": "panel", "resumeUrl": "exhibits/lobby/"}'>
+
+<div class="term-page">
+<pre><span class="titlebar"><span>MUSEUM.EXE &middot; /exhibits/the-museum</span><span>TEXT MODE</span></span></pre>
+<!-- Tells a touch device, which the shell sends here, that it is reading the text version of the museum -->
+<div class="mobile-banner" role="note">
+<pre class="mobile-letters t-warn" aria-label="Text mode">███ ███ █ █ ███     █   █ ███ ██  ███
+ █  █   █ █  █      ██ ██ █ █ █ █ █
+ █  ██   █   █      █ █ █ █ █ █ █ ██
+ █  █   █ █  █      █   █ █ █ █ █ █
+ █  ███ █ █  █      █   █ ███ ██  ███</pre>
+<pre>You are reading the text version of the museum. Every exhibit is here, but walking the 3D museum takes a keyboard and mouse, so visit on a computer for the full experience.</pre>
+</div>
+
+<pre><span class="t-hi">C:\MUSEUM&gt;</span> TYPE EXHIBITS\THE-MUSEUM.TXT
+
+<span class="t-hi">ABOUT THE MUSEUM</span>
+<span class="t-cyan">Wing:</span> About the Museum   <span class="t-cyan">Room:</span> About the Museum
+<span class="t-cyan">Tags:</span> Godot 4.7, Python, SCons, Jinja2, TOML
+================================================================</pre>
+<div class="term-doc">
+<p>The Museum, as you stand in today, is a first person portfolio built with Godot 4.7 and exported to the web through WebAssembly. A Python build reads the manifest, validates every exhibit, lays out the rooms, and renders the HTML you are reading now, then Godot assembles and exports the 3D museum so that it can be run in the browser.</p>
+<p>Take a look around the rest of this exhibit to see how it all comes together.</p>
+
+</div>
+<pre><span class="t-hi">ARTIFACT: THE MUSEUM, LAYING ITSELF OUT</span> (scene)</pre>
+<div class="term-doc">
+<p>Every museum layout is built to order.</p>
+<p>After the contents of a museum is defined, the layout is build using procedural generation using a custom algorithm devised from researching how real museums are laid out. During a build process, the layout generator places every wing, room, and hallway with the exhibits and decorations interspersed with mathematical precision.</p>
+<p>This exhibit is a demonstration of layouts produced by the layout generator. Note how multiple floors, rooms, and wings can be supported to create a variety of different configurations. Shared across all is the central atrium. A fixture that research shows is critical to produce a museum with a defined flow that still feels like you can explore it, as opposed to being rushed along a pre-defined track.</p>
+
+</div>
+<pre><span class="t-hi">ARTIFACT: THE HEAD</span> (model)</pre>
+<div class="term-doc">
+<p>This is the low-poly head that watched visitors from the landing page of the Web4 portfolio. The predecessor and prototype for this museum.</p>
+<p>It was created by filming a video of my head capturing every angle, then expanding that video into a series of frames. Using those images a 3D model was reconstructed using <a href="https://github.com/alicevision/meshroom" target="_blank">Meshroom</a>. Once the model compiled, I took it into Blender and decimated it to fit the original low-poly look of the old portfolio. To finish it off, I setup the UV map and painted on the texture you see today.</p>
+</div>
+<pre><span class="t-hi">ARTIFACT: THE STACK</span> (scene)</pre>
+<div class="term-doc">
+<p>The Museum is a basic, run of the mill, HTML-based webserver under the hood. What separates it from the standard websites of today is how it mixes WebAssembly (WASM) and normal HTML-CSS-JS pages into a coherent experience.</p>
+<p>The 3D world and the player controller are composed and written in GDScript with Godot. Python scripts and SCons are used to smartly assemble the WASM and standard web components into a coherent package. Jinja2 is used to templatize every page such that every thing will remain visually consistent and free from human error. And, the backbone of it all, TOML configuration files are used to define the contents of the museum itself.</p>
+
+</div>
+<pre><span class="t-hi">ARTIFACT: WEB4, IN MINIATURE</span> (scene)</pre>
+<div class="term-doc">
+<p>The landing scene of the Web4 portfolio, the website before this museum, preserved in a frame. Its camera still turns to follow your look, and the head still follows its camera, though nothing in it can be clicked anymore.</p>
+<p>Web4 proved the pieces this museum stands on: Godot in the browser, a bridge to the page around it, and deep links into the scene.</p>
+
+<p>This was the original prototype website that inspired the creation of The Museum as it exists today. The piece titled, "The Web4 Portfolio," in jest of the Web3 wave pushing blockchain and NFT systems as opposed to the fully immersive web experiences that have been just beyond the grasp of technology and in the dreams of users since the early 2000s.</p>
+<p>Ultimately, the Web4 Portfolio proved the idea of a 3D "world website" could work technologically, and The Museum is the next step on the expansion and proliferation of that concept.</p>
+</div>
+<pre><span class="t-hi">ARTIFACT: MUSEUM.TOML</span> (image)</pre>
+<div class="term-doc">
+<p>This is an example of a <i>museum.toml</i> manifest that defines the core details of The Museum before it is generated.</p>
+<p>Every wing, room, and exhibit you can walk to is declared here in plain TOML, and the build turns it into this building. Adding a project means adding a line and an associated <i>exhibit.toml</i>. This means I never have to rebuild the 3D world by hand; it's produced deterministically through informed procedural generation.</p>
+</div>
+<pre><span class="t-hi">ARTIFACT: EXHIBIT.TOML</span> (image)</pre>
+<div class="term-doc">
+<p>This is an example of a <i>exhibit.toml</i> manifest that defines the details of an Exhibit within The Museum.</p>
+<p>When linked into a `museum.toml` file, this manifest defines the details pertaining to an exhibit that will be placed procedurally within The Museum. For small exhibits, like those that appear as a picture on the wall, this means defining some metadata and one or two associated HTML files like the one you're reading now. For grand exhibits, like the entire "About the Museum" exhibit itself, this file defines all the artifacts within.</p>
+</div>
+<pre><span class="t-hi">ARTIFACT: ONE COMMAND</span> (video)</pre>
+<div class="term-doc">
+<p>One command builds the whole site. It validates the manifest, lays the museum out procedurally, processes the media, renders every page from templates, assembles the 3D museum in Godot, and exports it all for the web.</p>
+<p>This means that the only burden placed on an individual setting a museum up is to produce the content within. A system that is, in some ways, even simpler than most pick-and-place HTML website builders.</p>
+</div>
+<pre><span class="t-hi">ARTIFACT: TEXT MODE</span> (video)</pre>
+<div class="term-doc">
+<p>Since the entire Museum is derived from configuration files and procedurally laid out, creating a totally accessible HTML and CSS only presentation is trivial. Using the template systems used elsewhere, a DOS terminal styled "Text Mode" website can be produced.</p>
+<p>This offers a surface for search aggregators like Google to index The Museum as a regular website. This means we're providing SEO friendly pages while still making the 3D experience available for people. It also provides a constrained experience for those that might prefer to navigate the web the old fashioned way.</p>
+
+</div>
+<pre><span class="t-hi">ARTIFACT: THE GREYBOX</span> (image)</pre>
+<div class="term-doc">
+<p>The Museum, like most game-based projects, began with the Grey Box. A basic layout of terrain in a fixed manner to test out the player movement controller and basic systems.</p>
+<p>It remains highlighted here as a marker of how the project has come from grey boxes to procedurally generated museum halls.</p>
+
+</div>
+<pre>----------------------------------------------------------------
+<span class="t-cyan">LINKS</span>
+  [1] <a class="term-link" href="../../?exhibit=the-museum" data-cmd="enter">Enter the museum at this exhibit</a>
+  [2] <a class="term-link" href="../../exhibits/" data-cmd="dir">All exhibits</a>
+  [3] <a class="term-link" href="../../licenses/" data-cmd="licenses">Licenses</a>
+</pre>
+
+<pre id="termOut"></pre>
+<div class="prompt-line" id="promptLine" hidden><span>C:\MUSEUM&gt; </span><input id="termInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Command"></div>
+</div>
+<script src="../../static/js/terminal.js"></script>
+</body>
+</html>

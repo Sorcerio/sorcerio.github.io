@@ -1,0 +1,25 @@
+/* The theme colors and media query the HTML layer shares with the scripts, written by `scripts/pipeline/shared.py` from the scripts' own values. */
+
+/* WARN: Generated; change the values in the scripts and build, never this file. */
+
+/* MARK: Tokens */
+:root {
+	/* The fixed marble, ink, and concrete, then the fresco wing accents */
+	--marble: #f4f0e7;
+	--ink: #1d1e1b;
+	--concrete: #9a9a93;
+	--pompeian: #a8322d;
+	--ochre: #c38a2a;
+	--lapis: #2c4d8e;
+	--malachite: #2d7656;
+	--tyrian: #66023c;
+	--verdigris: #28706a;
+	--terracotta: #a4492a;
+	--umber: #6b4a2b;
+}
+
+/* MARK: Touch */
+/* A device whose main input is touch cannot drive the 3D museum, so its shell offers text mode */
+@media (pointer: coarse) and (hover: none) {
+	.mobile-banner { display: block; }
+}

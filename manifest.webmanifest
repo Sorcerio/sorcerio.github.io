@@ -1,0 +1,21 @@
+{
+	"name": "The Museum Portfolio",
+	"short_name": "The Museum Portfolio",
+	"description": "Brody's 3D world portfolio museum",
+	"start_url": "./",
+	"display": "standalone",
+	"background_color": "#1d1e1b",
+	"theme_color": "#a8322d",
+	"icons": [
+		{
+			"src": "media/icon-192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "media/icon-512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}

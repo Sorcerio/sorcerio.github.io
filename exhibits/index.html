@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>The Museum Portfolio (Text Mode)</title>
+	<link rel="stylesheet" href="../static/css/theme.css">
+	<link rel="stylesheet" href="../static/css/shared.css">
+	<link rel="manifest" href="../manifest.webmanifest">
+	<link rel="icon" href="../media/icon.ico" sizes="16x16 32x32 48x48">
+	<link rel="apple-touch-icon" href="../media/icon-180.png">
+</head>
+<body class="terminal" data-site-root="../" data-pages='["the-museum", "ia-blue-suns-golden-void", "ia-evening-shift", "ia-gift-of-the-clans", "ia-ice-breaker", "ia-in-the-hull", "ia-non-deos-nec-dominis", "ia-pre-run", "ia-shift-change", "ia-uruk-city-of-concrete-teeth", "ia-valkyrie", "iw-europa", "iw-launch-day", "ia-book-1", "argui", "docket", "mbm-visualizer", "piconote", "cistercian-font", "mechanical-painter", "trippy-hike", "code-roulette", "lag", "rimworld-antfarm", "atrium", "lobby"]' data-config='{"dosFlag": "dos", "exhibitQuery": "exhibit", "exhibitsUrl": "exhibits/", "forwards": {"lobby": {"licenses": "licenses/"}}, "licensesUrl": "licenses/", "panelQuery": "panel", "resumeUrl": "exhibits/lobby/"}'>
+
+<div class="term-page">
+<pre><span class="titlebar"><span>MUSEUM.EXE &middot; /exhibits</span><span>TEXT MODE</span></span></pre>
+<!-- Tells a touch device, which the shell sends here, that it is reading the text version of the museum -->
+<div class="mobile-banner" role="note">
+<pre class="mobile-letters t-warn" aria-label="Text mode">███ ███ █ █ ███     █   █ ███ ██  ███
+ █  █   █ █  █      ██ ██ █ █ █ █ █
+ █  ██   █   █      █ █ █ █ █ █ █ ██
+ █  █   █ █  █      █   █ █ █ █ █ █
+ █  ███ █ █  █      █   █ ███ ██  ███</pre>
+<pre>You are reading the text version of the museum. Every exhibit is here, but walking the 3D museum takes a keyboard and mouse, so visit on a computer for the full experience.</pre>
+</div>
+
+<pre><span class="t-hi">C:\MUSEUM&gt;</span> TYPE README.TXT
+
+<span class="t-hi">THE MUSEUM PORTFOLIO</span>
+Brody&#39;s 3D world portfolio museum
+
+The text mode of the museum: every exhibit, readable in any browser.
+Follow a link, or type a command at the prompt.
+
+<span class="t-hi">C:\MUSEUM&gt;</span> DIR EXHIBITS
+
+<span class="t-cyan" id="wing-about-museum">About the Museum</span>
+  About the Museum
+    [1] <a class="term-link" href="the-museum/">About the Museum</a>
+
+<span class="t-cyan" id="wing-illegal-astronauts">Illegal Astronauts</span>
+  Short Stories
+    [2] <a class="term-link" href="ia-blue-suns-golden-void/">Blue Suns and the Golden Void</a>
+    [3] <a class="term-link" href="ia-evening-shift/">Evening Shift</a>
+    [4] <a class="term-link" href="ia-gift-of-the-clans/">The Gift Of The Clans</a>
+    [5] <a class="term-link" href="ia-ice-breaker/">I.C.E. Breaker</a>
+    [6] <a class="term-link" href="ia-in-the-hull/">In The Hull</a>
+    [7] <a class="term-link" href="ia-non-deos-nec-dominis/">Non Deos. Nec Dominis.</a>
+    [8] <a class="term-link" href="ia-pre-run/">Pre-Run</a>
+    [9] <a class="term-link" href="ia-shift-change/">Shift Change</a>
+    [10] <a class="term-link" href="ia-uruk-city-of-concrete-teeth/">Uruk: City Of Concrete Teeth</a>
+    [11] <a class="term-link" href="ia-valkyrie/">Valkyrie</a>
+    [12] <a class="term-link" href="iw-europa/">ICE WAR: Europa</a>
+    [13] <a class="term-link" href="iw-launch-day/">ICE WAR: Launch Day</a>
+  Illegal Astronauts: Book 1
+    [14] <a class="term-link" href="ia-book-1/">Illegal Astronauts: Book 1</a>
+
+<span class="t-cyan" id="wing-tools">Tools &amp; Experiments</span>
+  Gallery I
+    [15] <a class="term-link" href="argui/">ArgUI</a>
+    [16] <a class="term-link" href="docket/">Docket</a>
+    [17] <a class="term-link" href="mbm-visualizer/">The Music Visualizer</a>
+    [18] <a class="term-link" href="piconote/">PicoNote</a>
+  Gallery II
+    [19] <a class="term-link" href="cistercian-font/">Cistercian Numeral Font</a>
+  The Mechanical Painter
+    [20] <a class="term-link" href="mechanical-painter/">The Mechanical Painter</a>
+
+<span class="t-cyan" id="wing-games">Games &amp; Engines</span>
+  Gallery I
+    [21] <a class="term-link" href="trippy-hike/">Trippy Hike</a>
+    [22] <a class="term-link" href="code-roulette/">Code Roulette</a>
+    [23] <a class="term-link" href="lag/">The LLM Adventure Game Framework</a>
+    [24] <a class="term-link" href="rimworld-antfarm/">The Rimworld Antfarm</a>
+----------------------------------------------------------------
+<span class="t-cyan">LINKS</span>
+  [25] <a class="term-link" href="../" data-cmd="enter">Enter the 3D museum</a>
+  [26] <a class="term-link" href="../exhibits/atrium/">Atrium</a>
+  [27] <a class="term-link" href="../exhibits/lobby/" data-cmd="resume">Resume</a>
+  [28] <a class="term-link" href="https://www.linkedin.com/in/therealbrodychilds" target="_blank" rel="noopener">LinkedIn</a>
+  [29] <a class="term-link" href="../licenses/" data-cmd="licenses">Licenses</a>
+</pre>
+
+<pre id="termOut"></pre>
+<div class="prompt-line" id="promptLine" hidden><span>C:\MUSEUM&gt; </span><input id="termInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Command"></div>
+</div>
+<script src="../static/js/terminal.js"></script>
+</body>
+</html>
